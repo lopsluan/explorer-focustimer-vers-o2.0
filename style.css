@@ -1,0 +1,160 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+
+  gap: 19.2rem;
+
+  padding-top: 20vh;
+}
+
+body .timer-container,
+body .sounds-button-container {
+  animation: downtop 1000ms;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* svg {
+  width: 4.8rem;
+  height: 4.8rem;
+} */
+
+.hide {
+  display: none;
+}
+
+.selected {
+  opacity: 0.6;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+}
+
+.timer span {
+  font-family: "Roboto", sans-serif;
+  line-height: 14.8rem;
+  font-size: 12.6rem;
+  font-weight: 500;
+
+  color: #323238;
+}
+
+.control-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.play,
+.stop,
+.plus,
+.less,
+.pause {
+  background-color: transparent;
+  border: 0;
+}
+
+.play path,
+.stop path,
+.plus path,
+.less path,
+.pause path {
+  fill: #323238;
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.play:hover path,
+.stop:hover path,
+.plus:hover path,
+.less:hover path,
+.pause:hover path {
+  fill: #323238db;
+}
+
+.sounds-button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 3.2rem;
+}
+
+.sounds-button-container button {
+  width: 13.8rem;
+  height: 15.2rem;
+
+  border-radius: 2.4rem;
+  border: none;
+
+  background: #e1e1e6;
+}
+
+.sounds-button-container button:hover {
+  background: #d9d9e2;
+}
+
+.sounds-button-container .rain {
+  background: #02799d;
+}
+
+.sounds-button-container .rain:hover {
+  background: #0a6f8e;
+}
+
+@media (max-width: 850px) {
+  body {
+    flex-direction: column;
+    overflow: scroll;
+
+    padding-top: 10vh;
+  }
+
+  .timer {
+    justify-content: center;
+  }
+
+  .control-buttons {
+    justify-content: center;
+    gap: 2.5rem;
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 330px) {
+  .sounds-button-container {
+    gap: 1.5rem;
+
+    padding-bottom: 1.5rem;
+  }
+
+  .sounds-button-container button {
+    width: 13rem;
+    height: 14.4rem;
+  }
+}

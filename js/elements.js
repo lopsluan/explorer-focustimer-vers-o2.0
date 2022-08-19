@@ -1,0 +1,11 @@
+export const secondsDisplay = document.querySelector(".seconds");
+export const minutesDisplay = document.querySelector(".minutes");
+export const buttonPlay = document.querySelector(".play");
+export const buttonPause = document.querySelector(".pause");
+export const buttonStop = document.querySelector(".stop");
+export const buttonPlus = document.querySelector(".plus");
+export const buttonLess = document.querySelector(".less");
+export const buttonSoundForest = document.querySelector(".forest");
+export const buttonSoundRain = document.querySelector(".rain");
+export const buttonSoundCoffeeShop = document.querySelector(".coffee-shop");
+export const buttonSoundFire = document.querySelector(".fire");

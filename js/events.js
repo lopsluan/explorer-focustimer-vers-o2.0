@@ -8,6 +8,7 @@ import {
   buttonSoundRain,
   buttonStop,
   buttonPause,
+  buttonSet,
 } from "./elements.js";
 
 export const Events = ({ sound, timer, control }) => {
@@ -40,31 +41,46 @@ export const Events = ({ sound, timer, control }) => {
   });
 
   buttonSoundForest.addEventListener("click", () => {
-    sound.forestAudio.play();
+    sound.toggleAudio(sound.forestAudio);
     sound.rainAudio.pause();
     sound.coffeeShopAudio.pause();
     sound.rainAudio.pause();
     sound.pressButton();
+    control.selectButtonSoundForest();
   });
   buttonSoundRain.addEventListener("click", () => {
+    sound.toggleAudio(sound.rainAudio);
     sound.forestAudio.pause();
-    sound.rainAudio.play();
     sound.coffeeShopAudio.pause();
     sound.fireAudio.pause();
     sound.pressButton();
+    control.selectButtonSoundRain();
   });
   buttonSoundCoffeeShop.addEventListener("click", () => {
+    sound.toggleAudio(sound.coffeeShopAudio);
     sound.forestAudio.pause();
     sound.rainAudio.pause();
-    sound.coffeeShopAudio.play();
     sound.fireAudio.pause();
     sound.pressButton();
+    control.selectButtonSoundCoffeeShop();
   });
   buttonSoundFire.addEventListener("click", () => {
+    sound.toggleAudio(sound.fireAudio);
     sound.forestAudio.pause();
     sound.rainAudio.pause();
     sound.coffeeShopAudio.pause();
-    sound.fireAudio.play();
     sound.pressButton();
+    control.selectButtonSoundFire();
+  });
+  buttonSet.addEventListener("click", function () {
+    let newMinutes = control.getMinutes();
+
+    if (!newMinutes) {
+      timer.reset();
+      return;
+    }
+
+    timer.updateDisplay(newMinutes, 0);
+    timer.updateMinutes(newMinutes);
   });
 };

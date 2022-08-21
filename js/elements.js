@@ -9,3 +9,4 @@ export const buttonSoundForest = document.querySelector(".forest");
 export const buttonSoundRain = document.querySelector(".rain");
 export const buttonSoundCoffeeShop = document.querySelector(".coffee-shop");
 export const buttonSoundFire = document.querySelector(".fire");
+export const buttonSet = document.querySelector(".set");

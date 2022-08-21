@@ -19,6 +19,10 @@ export default () => {
     kitchenTimer.play();
   }
 
+  const toggleAudio = (audio) => {
+    !audio.paused ? audio.pause() : audio.play();
+  };
+
   return {
     forestAudio,
     rainAudio,
@@ -26,5 +30,6 @@ export default () => {
     fireAudio,
     timeEnd,
     pressButton,
+    toggleAudio,
   };
 };

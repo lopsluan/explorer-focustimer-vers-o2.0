@@ -2,21 +2,20 @@ import Sounds from "./sounds.js";
 
 export const Timer = ({ minutesDisplay, secondsDisplay }) => {
   let timerTimeOut;
-  const minutes = Number(minutesDisplay.textContent);
-  let newMinutes = minutes;
+  let minutes = Number(minutesDisplay.textContent);
 
-  const updateDisplay = (newMinutes, newSeconds) => {
+  function updateDisplay(newMinutes, seconds) {
+    newMinutes = newMinutes === undefined ? minutes : newMinutes;
+    seconds = seconds === undefined ? 0 : seconds;
     minutesDisplay.textContent = String(newMinutes).padStart(2, "0");
-    if (newSeconds || newSeconds === 0)
-      secondsDisplay.textContent = String(newSeconds).padStart(2, "0");
-  };
+    secondsDisplay.textContent = String(seconds).padStart(2, "0");
+  }
 
   const stop = () => {
     reset();
   };
 
   const reset = () => {
-    newMinutes = 25;
     updateDisplay(minutes, 0);
     clearTimeout(timerTimeOut);
   };
@@ -24,9 +23,10 @@ export const Timer = ({ minutesDisplay, secondsDisplay }) => {
   const countdown = () => {
     timerTimeOut = setTimeout(() => {
       let seconds = Number(secondsDisplay.textContent);
+      let minutes = Number(minutesDisplay.textContent);
       let isFinished = minutes <= 0 && seconds <= 0;
 
-      updateDisplay(newMinutes, 0);
+      updateDisplay(minutes, 0);
 
       if (isFinished) {
         reset();
@@ -36,32 +36,36 @@ export const Timer = ({ minutesDisplay, secondsDisplay }) => {
 
       if (seconds <= 0) {
         seconds = 60;
-        --newMinutes;
+        --minutes;
       }
 
-      updateDisplay(newMinutes, String(seconds - 1));
+      updateDisplay(minutes, String(seconds - 1));
 
       countdown();
     }, 1000);
   };
 
   const addFiveMinutes = () => {
-    newMinutes += 5;
-    updateDisplay(newMinutes);
+    minutes = Number(minutes) + 5;
+    updateDisplay(minutes);
   };
 
   const lessFiveMinutes = () => {
-    if (newMinutes < 5) {
-      newMinutes = 0;
+    if (minutes < 5) {
+      minutes = 0;
     } else {
-      newMinutes -= 5;
+      minutes -= 5;
     }
-    updateDisplay(newMinutes);
+    updateDisplay(minutes);
   };
 
   const hold = () => {
     clearTimeout(timerTimeOut);
   };
+
+  function updateMinutes(newMinute) {
+    minutes = newMinute;
+  }
 
   return {
     lessFiveMinutes,
@@ -69,5 +73,8 @@ export const Timer = ({ minutesDisplay, secondsDisplay }) => {
     countdown,
     hold,
     stop,
+    updateDisplay,
+    updateMinutes,
+    reset,
   };
 };

@@ -3,6 +3,12 @@ import {
   minutesDisplay,
   secondsDisplay,
   buttonPause,
+  buttonSoundRain,
+  buttonSoundForest,
+  buttonSoundFire,
+  buttonSoundCoffeeShop,
+  buttonSet,
+  buttonStop,
 } from "./elements.js";
 
 import { Control } from "./controls.js";
@@ -13,6 +19,12 @@ import Sounds from "./sounds.js";
 const control = Control({
   buttonPlay,
   buttonPause,
+  buttonSoundRain,
+  buttonSoundForest,
+  buttonSoundFire,
+  buttonSoundCoffeeShop,
+  buttonSet,
+  buttonStop,
 });
 
 const timer = Timer({

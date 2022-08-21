@@ -61,30 +61,18 @@ button {
   justify-content: space-between;
 }
 
-.play,
-.stop,
-.plus,
-.less,
-.pause {
+.control-buttons button {
   background-color: transparent;
   border: 0;
 }
 
-.play path,
-.stop path,
-.plus path,
-.less path,
-.pause path {
+.control-buttons button svg path {
   fill: #323238;
   width: 4.8rem;
   height: 4.8rem;
 }
 
-.play:hover path,
-.stop:hover path,
-.plus:hover path,
-.less:hover path,
-.pause:hover path {
+.control-buttons button svg path {
   fill: #323238db;
 }
 
@@ -95,7 +83,7 @@ button {
   gap: 3.2rem;
 }
 
-.sounds-button-container button {
+.sounds-button {
   width: 13.8rem;
   height: 15.2rem;
 
@@ -105,16 +93,26 @@ button {
   background: #e1e1e6;
 }
 
-.sounds-button-container button:hover {
+.sounds-button-disable:hover {
   background: #d9d9e2;
 }
 
-.sounds-button-container .rain {
+.sounds-button-selected {
+  width: 13.8rem;
+  height: 15.2rem;
+
+  border-radius: 2.4rem;
+  border: none;
+
   background: #02799d;
 }
 
-.sounds-button-container .rain:hover {
+.sounds-button-selected:hover {
   background: #0a6f8e;
+}
+
+.sounds-button-selected svg path {
+  fill: #fff;
 }
 
 @media (max-width: 850px) {
